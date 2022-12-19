@@ -21,8 +21,9 @@
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
+    "json-server": "^0.17.1",
     "prettier": "^2.8.1",
-    "prettier-plugin-organize-imports": "^3.2.1",
-    "husky": "^8.0.0"
+    "prettier-plugin-organize-imports": "^3.2.1"
   }
 }
