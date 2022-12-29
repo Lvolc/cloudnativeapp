@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import List from '@mui/material/List';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -46,6 +46,29 @@ export default function Product() {
     }
   };
 
+  useEffect(() => {
+    if (typeof id !== 'undefined' && id !== '-1') {
+      const fetchData = async () => {
+        try {
+          const data = {
+            name:'name1',
+            price: 1,
+            category: 'category1',
+            count: 1.1,
+            rating: 3,
+          };
+          setValue('name',data.name);
+          setValue('price',data.price);
+          setValue('category',data.category);
+          setValue('count',data.count);
+          setValue('rating',data.rating);
+        } catch (error) {
+          console.error(error.message);
+        }
+      };
+      fetchData();
+    }
+  }, [id, setValue]);
 
   return (
     <List>
