@@ -54,8 +54,8 @@ export default function Product() {
             name:'name1',
             price: 1,
             category: 'category1',
-            count: 1.1,
-            rating: 3,
+            count: 1,
+            rating: 1.1,
           };
           setValue('name',data.name);
           setValue('price',data.price);
