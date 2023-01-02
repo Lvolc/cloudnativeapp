@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "name": "Product 16",
-      "price": "100.00",
-      "category": "Category 1",
-      "count": 1,
-      "rating": 4.4,
-      "id": 1
-    },
-    {
       "name": "Product 2",
       "price": "2.0",
       "category": "Category 2",
@@ -23,6 +15,14 @@
       "count": "56",
       "rating": "6",
       "id": 3
+    },
+    {
+      "name": "Product 3",
+      "price": "300",
+      "category": "teste123",
+      "count": "56",
+      "rating": "5.8",
+      "id": 4
     }
   ]
 }
