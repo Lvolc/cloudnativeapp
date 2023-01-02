@@ -10,31 +10,41 @@ import PageHeader from '../../components/pagetemplate/PageHeader';
 import PageContent from '../../components/pagetemplate/PageContent';
 import PageContentLabels from '../../components/pagetemplate/PageContentLabels';
 
+import { deleteData, getData, postData, putData } from '../../middlewares/data';
+
 const pageLabel = 'Products';
 
 const itemsLabels = ['Id','Name','Price','Category','Count',  'Rating','Actions',];
 
-const productsList = [
-  { name: 'P1', price: 1, category: 'C1', count: 1, rating: 1, id: 1 },
-  { name: 'P2', price: 2, category: 'C2', count: 2, rating: 2, id: 2 },
-];
+
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const router = useRouter();
   const getProducts = async () => {
-    setProducts(productsList);
+    try {
+      const jsonData = await getData('products');
+      setProducts(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
+
   };
   const editProduct = async (id) => {
     try {
-      router.push('/products/${id}');
+      router.push(`/products/${id}`);
     } catch (error) {
       console.error(error.message);
     }
   };
   
   const deleteProduct = async (id) => {
-    alert(`deleteProduct(): ${id}`);
+    try {
+      await deleteData('products', id);
+      location.reload();
+    } catch (error) {
+      console.error(error.message);
+    }
   };
   
   const createProduct = async () => {

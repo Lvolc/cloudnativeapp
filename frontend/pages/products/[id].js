@@ -11,6 +11,7 @@ import { ControllerTextField } from '../../components/ControllerTextField';
 
 import PageHeader from '../../components/pagetemplate/PageHeader';
 import PageContent from '../../components/pagetemplate/PageContent';
+import { getData, postData, putData } from '../../middlewares/data';
 
 const pageLabel = 'Edit Product';
 
@@ -36,9 +37,9 @@ export default function Product() {
     const body = { name, price, category, count, rating };
     try {
       if (id === '-1') {
-        alert('insert new product!');
+        await postData('products', body);
       } else {
-        alert('update existing product!');
+        await putData('products', id, body);
       }
       router.back();
     } catch (error) {
@@ -50,13 +51,7 @@ export default function Product() {
     if (typeof id !== 'undefined' && id !== '-1') {
       const fetchData = async () => {
         try {
-          const data = {
-            name:'name1',
-            price: 1,
-            category: 'category1',
-            count: 1,
-            rating: 1.1,
-          };
+          const data = await getData(`products/${id}`);
           setValue('name',data.name);
           setValue('price',data.price);
           setValue('category',data.category);
