@@ -1,12 +1,10 @@
 /* eslint-disable prettier/prettier */
 const express = require('express');
 const app = express();
-const welcomeMessage = 'Welcome to the backend module...'; 
+const router = require('./routers');
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send(welcomeMessage);
-});
+app.use('/', router);
 
 module.exports = app;
